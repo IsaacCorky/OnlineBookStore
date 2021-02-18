@@ -23,7 +23,7 @@ namespace OnlineBookStore.Models
         [Required]
         public string BookPublisher { get; set; }
         [Required]
-        [RegularExpression(@"^[0-9]{3}(-[0-9]{10})$", ErrorMessage = "ISBN format is invalid.")] // Get regex for ###-##########
+        [RegularExpression(@"^(?=(?:\D*\d){10}(?:(?:\D*\d){3})?$)[\d-]+$", ErrorMessage = "ISBN format is invalid.")] // Get regex for ###-##########
         public string BookISBN { get; set; }
         [Required]
         public string BookCategory { get; set; } // atomic
