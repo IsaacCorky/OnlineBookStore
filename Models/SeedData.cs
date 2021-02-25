@@ -34,7 +34,8 @@ namespace OnlineBookStore.Models
                         BookISBN = "978-0451419439",
                         BookClassification = "Fiction",
                         BookCategory = "Classic",
-                        BookPrice = 9.95
+                        BookPrice = 9.95,
+                        BookPages = 1488
                     },
 
                     new BookModel
@@ -47,7 +48,8 @@ namespace OnlineBookStore.Models
                         BookISBN = "978-0743270755",
                         BookClassification = "Non-Fiction",
                         BookCategory = "Biography",
-                        BookPrice = 14.58
+                        BookPrice = 14.58,
+                        BookPages = 944
                     },
 
                     new BookModel
@@ -60,7 +62,8 @@ namespace OnlineBookStore.Models
                         BookISBN = "978-0553384611",
                         BookClassification = "Non-Fiction",
                         BookCategory = "Biography",
-                        BookPrice = 21.54
+                        BookPrice = 21.54,
+                        BookPages = 832
                     },
 
                     new BookModel
@@ -73,7 +76,8 @@ namespace OnlineBookStore.Models
                         BookISBN = "978-0812981254",
                         BookClassification = "Non-Fiction",
                         BookCategory = "Biography",
-                        BookPrice = 11.61
+                        BookPrice = 11.61,
+                        BookPages = 864
                     },
 
                     new BookModel
@@ -86,7 +90,8 @@ namespace OnlineBookStore.Models
                         BookISBN = "978-0812974492",
                         BookClassification = "Non-Fiction",
                         BookCategory = "Historical",
-                        BookPrice = 13.33
+                        BookPrice = 13.33,
+                        BookPages = 528
                     },
 
                     new BookModel
@@ -99,12 +104,13 @@ namespace OnlineBookStore.Models
                         BookISBN = "978-0804171281",
                         BookClassification = "Fiction",
                         BookCategory = "Historical Fiction",
-                        BookPrice = 15.95
+                        BookPrice = 15.95,
+                        BookPages = 288
                     },
 
                     new BookModel
                     {
-                        BookTitle = "Deep  Work",
+                        BookTitle = "Deep Work",
                         BookAuthorFirstName = "Cal",
                         BookAuthorMiddleName = "",
                         BookAuthorLastName = "Newport",
@@ -112,7 +118,8 @@ namespace OnlineBookStore.Models
                         BookISBN = "978-1455586691",
                         BookClassification = "Non-Fiction",
                         BookCategory = "Self-Help",
-                        BookPrice = 14.99
+                        BookPrice = 14.99,
+                        BookPages = 304
                     },
 
                     new BookModel
@@ -125,7 +132,8 @@ namespace OnlineBookStore.Models
                         BookISBN = "978-1455523023",
                         BookClassification = "Non-Fiction",
                         BookCategory = "Self-Help",
-                        BookPrice = 21.66
+                        BookPrice = 21.66,
+                        BookPages = 240
                     },
 
                     new BookModel
@@ -138,7 +146,8 @@ namespace OnlineBookStore.Models
                         BookISBN = "978-1591847984",
                         BookClassification = "Non-Fiction",
                         BookCategory = "Business",
-                        BookPrice = 29.16
+                        BookPrice = 29.16,
+                        BookPages = 400
                     },
 
                     new BookModel
@@ -151,7 +160,50 @@ namespace OnlineBookStore.Models
                         BookISBN = "978-0553393613",
                         BookClassification = "Fiction",
                         BookCategory = "Thrillers",
-                        BookPrice = 15.03
+                        BookPrice = 15.03,
+                        BookPages = 642
+                    },
+
+                    new BookModel
+                    {
+                        BookTitle = "Good Strategy Bad Strategy",
+                        BookAuthorFirstName = "Richard",
+                        BookAuthorMiddleName = "Post",
+                        BookAuthorLastName = "Rumelt",
+                        BookPublisher = "Profile Books",
+                        BookISBN = "978-1781256176",
+                        BookClassification = "Non-Fiction",
+                        BookCategory = "Reference Work",
+                        BookPrice = 14.17,
+                        BookPages = 322
+                    },
+
+                    new BookModel
+                    {
+                        BookTitle = "The 4-Hour Workweek",
+                        BookAuthorFirstName = "Timothy",
+                        BookAuthorMiddleName = "",
+                        BookAuthorLastName = "Ferriss",
+                        BookPublisher = "Crown Publishing Group",
+                        BookISBN = "978-0091923723",
+                        BookClassification = "Non-Fiction",
+                        BookCategory = "Self-Help",
+                        BookPrice = 14.63,
+                        BookPages = 308
+                    },
+
+                    new BookModel
+                    {
+                        BookTitle = "Inspired: How to Create Tech Products Customers Love",
+                        BookAuthorFirstName = "Marty",
+                        BookAuthorMiddleName = "",
+                        BookAuthorLastName = "Cagan",
+                        BookPublisher = "Wiley",
+                        BookISBN = "978-1119387503",
+                        BookClassification = "Non-Fiction",
+                        BookCategory = "Business",
+                        BookPrice = 26.99,
+                        BookPages = 368
                     }
                 );
 

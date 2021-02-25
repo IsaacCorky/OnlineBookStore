@@ -31,6 +31,9 @@ namespace OnlineBookStore.Models
         public string BookClassification { get; set; } //atomic
         [Required]
         public double BookPrice { get; set; }
+        [Required]
+        public int BookPages { get; set; }
+        
 
     }
 }
