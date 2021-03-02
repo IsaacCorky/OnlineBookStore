@@ -3,117 +3,36 @@
 }
 @model BookListViewModel
 
-<div class="row">
-    <h1 class="display-4">Welcome to OnlineBookStore</h1>
+    
+@foreach (var b in Model.Books)
+{   // Pull the html from the BookSummary shared view where the variable b is our "Model"
+    <partial name="BookSummary" model="b" /> <br />
+}
+   
+<div page-model="@Model.PagingInfo"
+     page-action="Index"
+     page-classes-enabled="true"
+     page-class="btn"
+     page-class-normal="btn-outline-dark"
+     page-class-selected="btn-secondary"
+     page-url-category="@Model.BookCategory"
+     class="btn-group pull-right m-1"></div>
+    
+<!--
+Isaac Corcoran
 
-    <div class="row justify-content-evenly">
-        @foreach (var b in Model.Books)
-        {
-            <div class="col-sm-6 p-1">
-                <div class="card card text-white bg-secondary">
-                    <div class="card-header">
-                        <h5 class="card-title">Book #@b.BookId: @b.BookTitle</h5>
-                        <h6 class="card-subtitle mb-2 ">By @b.BookAuthorFirstName @b.BookAuthorMiddleName @b.BookAuthorLastName</h6>
-                    </div>
-                    <div class="card-body">
-
-                        <p class="card-text"><strong class="font-weight-bold">Price:</strong> @b.BookPrice.ToString("c")</p>
-                        <p class="card-text"><strong class="font-weight-bold">Publisher:</strong> @b.BookPublisher</p>
-                        <p class="card-text"><strong class="font-weight-bold">ISBN:</strong> @b.BookISBN</p>
-                        <p class="card-text"><strong class="font-weight-bold">Category:</strong> @b.BookCategory</p>
-                        <p class="card-text"><strong class="font-weight-bold">Genre:</strong> @b.BookClassification</p>
-                        <p class="card-text"><strong class="font-weight-bold">Pages:</strong>  @b.BookPages</p>
-
-                    </div>
-                </div>
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        }
-    </div>
-
-    <!--
-
-
-    My new Bootstrap styles:
-    text-white
-    col-sm-6
-    font-weight-bold
-    justify-content-evenly
-    bg-secondary
-    btn-secondary
-
-    Isaac Corcoran
-
-        Assignment 6
-        Continuing the Bookstore project we started in Assignment #5, we are going to add Pagination to
-        our web app (using Tag Helpers) so that the number of pages and navigation is automatically
-        generated based on the number of items in the list.
-        We will display 5 items per page.
-
-        Improve the URLs so that the user can type /P2 to access the second page and /P3 to access the
-        third page and so on.
-
-        Use Bootstrap to display the information in an attractive way. Use at least three new Bootstrap
-        commands that you have never used before that are different from those used in Chapter 7.
-        (#notcoveredinthevideos #notmeanttobedifficult – List the commands you used in the comments
-        when you submit the program.) The page navigation should function so that the current page is
-        highlighted in the list of page numbers, and that hovering over a page changes the appearance of
-        the link as well.
-
-        We want to start tracking the number of pages in the book as well. Update the model to store the
-        number of pages, and then update the database, and add the number of pages to the view.
-        After you have incorporated the Pagination, add three of your own favorite books to the
-        SeedData, and rebuild the database to test that the Pagination works as it should.
-
-
-
-
-            <table class="table table-striped table-dark">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">Publisher</th>
-                        <th scope="col">ISBN</th>
-                        <th scope="col">Classification</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Pages</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-
-                </tbody>
-            </table>
-                -->
-    <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-secondary" class="btn-group pull-right m-1"></div>
-
-
-
-</div>
+    IS 413 –Hilton
+    Assignment #7
+    Continuing the Bookstore project from Assignments #5 & #6, we are going to add the ability to filter by book 
+    category(i.e. “Autobiography”, “Self-Help”, etc.) to our web app so that the categories are automatically-generated 
+    and automatically filtered bythe app.Following the patternin the videos/textbook:
+    •Add the ability to filter by category in the Controller
+    •Improve the URLs to a pattern that is more user-friendly
+    •Build in the functionality so that the category is dynamically-displayed in the URL
+    •Insert the category menu using theView Componentmethod
+    •Build the partial viewused by the View Component to dynamicallydisplay the list of categories•Filter the results by category
+    •Dynamically highlight the category that has been selected
+    •Fix the page numbering to match the number ofitems by categoryAs always, write clean code that is easy to read.
+    Submit a link to the GitHub repository containing your assignment via Learning Suite.
+   (NOTE:  If you cannot submit via GitHub, you can submit a link to a .zip file, but you will lose5 points.)
+            -->

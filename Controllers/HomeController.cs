@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using OnlineBookStore.Models;
 using OnlineBookStore.Models.ViewModels;
 
 namespace OnlineBookStore.Controllers
@@ -25,23 +24,29 @@ namespace OnlineBookStore.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index(int P = 1)
+        public IActionResult Index(string category, int P = 1)
         {
             return View(new BookListViewModel
-            {
+            {   // 1st property of the BookListViewModel
                 Books = _repository.Books
-                    .OrderBy(p => p.BookId) // order by like in SQL
+                    .Where(b => category == null || b.BookCategory == category)
+                    .OrderBy(b => b.BookId) // order by like in SQL
                     .Skip((P - 1) * PageSize) // 0 base ID start at 0
                     .Take(PageSize)
                 ,
+                // 2nd property of the BookListViewModel
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = P,
                     ItemsPerPage = PageSize,
-                    TotalNumItems = _repository.Books.Count()
-                }
+                    // number of pages is dynamic
+                    TotalNumItems = category == null ? _repository.Books.Count() :
+                                                       _repository.Books.Where(x => x.BookCategory == category).Count()
+                },
+                // 3rd property of the BookListViewModel
+                BookCategory = category
 
-            });
+            }); 
         }
 
         public IActionResult Privacy()

@@ -29,7 +29,7 @@ namespace OnlineBookStore
 
             services.AddDbContext<OnlineBookStoreDbContext>(options =>
             {
-                options.UseSqlServer(Configuration["ConnectionStrings:OnlineBookStoreConnection"]); //connect to MS SQL from the appsettings.json
+                options.UseSqlite(Configuration["ConnectionStrings:OnlineBookStoreConnection"]); //connect to MS SQL from the appsettings.json
             });
 
             services.AddScoped<IOnlineBookStoreRepository, EFOnlineBookStoreRepository>();
@@ -41,6 +41,7 @@ namespace OnlineBookStore
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseBrowserLink();
             }
             else
             {
@@ -57,12 +58,25 @@ namespace OnlineBookStore
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    "pagination",
+                endpoints.MapControllerRoute("catpage",
+                    "{category}/P{P:int}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("page",
+                    "/P{P:int}",
+                    new { Controller = "Home", action = "Index", page = 1 });         // HOW IS THIS DIFFERENT
+
+                endpoints.MapControllerRoute("category",
+                    "{category}",
+                    new { Controller = "Home", action = "Index", page = 1 });
+
+                endpoints.MapControllerRoute("pagination",                  // TO THIS
                     "/P{P}",
-                    new { Controller = "Home", action = "Index"});
+                    new { Controller = "Home", action = "Index", page = 1 });
 
                 endpoints.MapDefaultControllerRoute(); // make the url route look better
+                   
+                
                     // previous old code
                     //name: "default",
                     //pattern: "{controller=Home}/{action=Index}/{id?}");

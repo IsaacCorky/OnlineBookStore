@@ -9,5 +9,6 @@ namespace OnlineBookStore.Models.ViewModels
     {
         public IEnumerable<BookModel> Books { get; set; }
         public PagingInfo PagingInfo { get; set; }
+        public string BookCategory { get; set; }// property
     }
 }
