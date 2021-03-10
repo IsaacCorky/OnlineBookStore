@@ -11,6 +11,7 @@
 </head>
 
 <body>
+             
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
@@ -22,25 +23,26 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-
+                            <div><vc:navigation-menu></vc:navigation-menu></div>
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Syn</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Ack</a>
                         </li>
                     </ul>
-
                 </div>
+
                 <vc:cart-summary />
+
             </div>
         </nav>
     </header>
 
     <div class="container">
-        
+
         <main role="main" class="pb-3">
-            <!-- Eveything goes below here-->
-            <h1 class="display-4">Welcome to OnlineBookStore</h1>
+            <!-- Eveything goes in here-->
+            <h1 class="display-4">Make a Purchase at the OnlineBookStore</h1>
             <div class="container ">
                 <div class="row">
                     <div class="col-md-auto">
@@ -51,12 +53,12 @@
                     </div>
                 </div>
             </div>
-            <!-- Eveything goes above here-->
-            
-            
+            <!-- Eveything goes in here-->
+
+
         </main>
     </div>
-    
+
     <footer class="border-top footer text-muted">
 
         <div class="container">

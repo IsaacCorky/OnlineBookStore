@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -33,6 +34,14 @@ namespace OnlineBookStore
             });
 
             services.AddScoped<IOnlineBookStoreRepository, EFOnlineBookStoreRepository>();
+
+            services.AddRazorPages(); // bring razor pages into the project
+
+            services.AddMemoryCache(); // add sessions to collect data fo a user session
+            services.AddSession(); // session part 1 / 2
+
+            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp)); // specifies that the same object should be used to satisfy related requests for Cart instances
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +61,8 @@ namespace OnlineBookStore
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseSession(); // session part 2 / 2
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -64,18 +75,19 @@ namespace OnlineBookStore
 
                 endpoints.MapControllerRoute("page",
                     "/P{P:int}",
-                    new { Controller = "Home", action = "Index", page = 1 });         // HOW IS THIS DIFFERENT
+                    new { Controller = "Home", action = "Index", page = 1 });         
 
                 endpoints.MapControllerRoute("category",
                     "{category}",
                     new { Controller = "Home", action = "Index", page = 1 });
 
-                endpoints.MapControllerRoute("pagination",                  // TO THIS
+                endpoints.MapControllerRoute("pagination",                  
                     "/P{P}",
                     new { Controller = "Home", action = "Index", page = 1 });
 
                 endpoints.MapDefaultControllerRoute(); // make the url route look better
-                   
+
+                endpoints.MapRazorPages(); // handle razor page routing
                 
                     // previous old code
                     //name: "default",
